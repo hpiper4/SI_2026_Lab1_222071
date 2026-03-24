@@ -51,7 +51,6 @@ class Library {
         books.add(book);
     }
 
-    // Implemented method
     public boolean searchBookByTitle(String title) {
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title)) {
@@ -61,12 +60,13 @@ class Library {
         return false;
     }
 
+    // Updated method
     public void borrowBook(String title) {
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title)) {
                 if (!book.isBorrowed()) {
                     book.setBorrowed(true);
-                    System.out.println("Book borrowed.");
+                    System.out.println("Borrowed successfully");
                 } else {
                     System.out.println("Book is already borrowed.");
                 }
@@ -125,12 +125,15 @@ public class SI2026Lab1Main {
 
         System.out.println("Library initialized.");
 
-        // Test search functionality
+        // Test search
         String searchTitle = "Clean Code";
         if (library.searchBookByTitle(searchTitle)) {
             System.out.println("Book found: " + searchTitle);
         } else {
             System.out.println("Book not found: " + searchTitle);
         }
+
+        // Test borrow
+        library.borrowBook("Clean Code");
     }
 }
