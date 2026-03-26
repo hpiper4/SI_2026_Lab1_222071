@@ -91,8 +91,20 @@ class Library {
         System.out.println("Book not found.");
     }
 
+    //  Implemented method
     public void printBooksByGenre(String genre) {
-        // Not implemented
+        boolean found = false;
+
+        for (Book book : books) {
+            if (book.getGenre().equalsIgnoreCase(genre)) {
+                System.out.println(book);
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No books found for genre: " + genre);
+        }
     }
 
     public int countAvailableBooks() {
@@ -133,7 +145,12 @@ public class SI2026Lab1Main {
             System.out.println("Book not found: " + searchTitle);
         }
 
+
         // Test borrow
         library.borrowBook("Clean Code");
+
+        //  Test print by genre
+        System.out.println("\nBooks in genre Programming:");
+        library.printBooksByGenre("Programming");
     }
 }
