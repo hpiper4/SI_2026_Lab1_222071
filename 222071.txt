@@ -1,0 +1,142 @@
+Prvite tri komandi se napraveni na stranica GitHub
+
+4. kreirav direktorium i go inicijalizirav so git init
+
+5. git remote add origin https://github.com/hpiper4/SI_2026_Lab1_222071.git
+
+6. cat README.md
+
+git config --global user.email "hpiperkovski@gmail.com"
+git config --global user.name "hpiper4"
+git add README.md
+git commit -m "Initial commit"   // add -> commit -> push
+
+7. go prezemav fajlot, go prefrliv vo folderot, git add SI2026Lab1Main.java posle git commit -m "Add starter code"
+
+8. git push --all
+
+9. git branch feature-search-books
+   git checkout feature-search-books
+
+10. promeni:
+public boolean searchBookByTitle(String title) {
+    for (Book book : books) {
+        if (book.getTitle().equalsIgnoreCase(title)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+i
+
+String searchTitle = "Clean Code";
+if (library.searchBookByTitle(searchTitle)) {
+    System.out.println("Book found: " + searchTitle);
+} else {
+    System.out.println("Book not found: " + searchTitle);
+}
+
+git add SI2026Lab1Main.java
+git commit -m "Implement book search"
+
+
+11. git push --all (momentalno sme vo drugata granka)
+
+    git checkout master
+    pull requestot e napraven vo github
+
+12. git checkout master
+    git merge feature-search-books
+
+
+13. ova e rezultatot od merge:
+	Updating f4f6d6b..43906ab
+Fast-forward
+ SI2026Lab1Main.java | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
+
+taka da e fast-forward merge
+
+rezultatot od log komandata:
+* 43906ab (HEAD -> master, origin/feature-search-books, feature-search-books) Implement book search
+* f4f6d6b (origin/master) Add starter code
+* 944665f Initial commit
+
+14. git push --all
+
+15. git branch feature-borrow-book
+    git branch feature-genre-book
+
+16. git checkout feature-borrow-book
+    implemetiran e metodot,
+    git add SI2026Lab1Main.java
+    git commit -m "Implement borrow book"
+
+17.
+promeni vo fajlot
+git add <ime_na_fajlot>
+git commit -m "poraka"
+
+
+18. implementirav metod
+    git add <ime_fajl>
+    git commit -m "poraka"
+
+19. git checkout feature-borrow-book
+    git push origin feature-borrow-book
+
+20. git checkout feature-genre-book
+    git push origin feature-genre-book
+
+21. ima konflikt vo pecatenjeto, se odluciv da se ispecati porakat sto e vo feature-borrow-book
+	posle toa git add na fajlot, kade sto napisav merge commit message
+
+22.
+git status
+On branch feature-borrow-book
+nothing to commit, working tree clean
+
+zatoa sto imase konflikt, merge bese rekurziven, vo minatiot cekor opisav kako go resiv konfliktot.
+
+23. imase merge konflikt, go resiv taka sto krajnoto pecatenje od dvete granki gi socuvav, isto i ova e rekurziven merge
+git add fajlot
+git commit i mi ja dade opcijata da napisam commit poraka, ja ostaviv porakata sto Samiot git bash mi ja preporaca
+
+24.
+Auto-merging SI2026Lab1Main.java
+Merge made by the 'ort' strategy.
+ SI2026Lab1Main.java | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+merge - ot bese auto merge , nemase konflikti zatoa sto promenite ne se vo istoto mesto vo fajlot, taka da git samo kje gi zeme promenite od drugata granka i kje gi spoi vo fajlot od momentalnata granka
+
+25. git push origin master
+
+26.
+git log --oneline --graph --all
+*   c3b7aef (HEAD -> master, origin/master) Merge branch 'feature-borrow-book'
+|\
+| *   d53fe77 (feature-borrow-book) Merge branch 'master' into feature-borrow-book
+| |\
+| * | 31f9885 (origin/feature-borrow-book) Implement borrow book
+* | |   8c287b2 Merge branch 'feature-genre-report'
+|\ \ \
+| |_|/
+|/| |
+| * | af8cc18 (origin/feature-genre-report, feature-genre-report) Implement genre report
+| |/
+* / 9635636 Update borrow message on master
+|/
+* 43906ab (origin/feature-search-books, feature-search-books) Implement book search
+nano 222071.txt
+
+27. git push origin master
+
+git add 222071.txt
+
+
+
+git commit -m "Final commit"
+* f4f6d6b Add starter code
+* 944665f Initial commit
